@@ -12,7 +12,7 @@ export const calculateWinner = (matrix) => {
 
   for (let i = 0; i < winner.length; i++) {
     const [a, b, c] = winner[i];
-    if (matrix[a] && matrix[a] == matrix[b] && matrix[b] == matrix[c]) {
+    if (matrix[a] && matrix[a] === matrix[b] && matrix[b] === matrix[c]) {
       return matrix[a];
     }
   }
