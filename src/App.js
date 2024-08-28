@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { Square } from "./components/Square.jsx";
 import { calculateWinner } from "./utility/calculateWinner.js";
+import { isMatrixFull } from "./utility/isMatrixFull.js";
 
 function App() {
   const [matrix, setMatrix] = useState(Array(9).fill(null));
@@ -47,7 +48,7 @@ function App() {
           <Square value={matrix[7]} onSquareClick={() => handleClick(7)} />
           <Square value={matrix[8]} onSquareClick={() => handleClick(8)} />
         </div>
-        {calculateWinner(matrix) ? (
+        {calculateWinner(matrix) || isMatrixFull(matrix) ? (
           <button
             style={{ fontSize: "3rem", width: "9rem", marginTop: "3rem" }}
             onClick={handleReset}
