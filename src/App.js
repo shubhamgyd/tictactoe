@@ -19,6 +19,10 @@ function App() {
     updateSelected(!isXSeleted);
     setMatrix(newMatrix);
   }
+  function handleReset() {
+    let newMatrix = Array(9).fill(null);
+    setMatrix(newMatrix);
+  }
   const winner = calculateWinner(matrix);
   let status;
   if (winner) {
@@ -43,6 +47,16 @@ function App() {
           <Square value={matrix[7]} onSquareClick={() => handleClick(7)} />
           <Square value={matrix[8]} onSquareClick={() => handleClick(8)} />
         </div>
+        {calculateWinner(matrix) ? (
+          <button
+            style={{ fontSize: "3rem", width: "9rem", marginTop: "3rem" }}
+            onClick={handleReset}
+          >
+            Reset
+          </button>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
